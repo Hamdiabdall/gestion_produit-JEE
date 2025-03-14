@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.GestionProduitImplJDBC;
+import dao.GestionProduitJPA;
 import dao.IGestionProduit;
 import entity.Produit;
 
@@ -24,7 +25,7 @@ public class Controller extends HttpServlet {
     @Override
     public void init() throws ServletException {
         // Initialize the GestionProduit instance
-        gestion = new GestionProduitImplJDBC();
+        gestion = new GestionProduitJPA();
     }
 
     /**

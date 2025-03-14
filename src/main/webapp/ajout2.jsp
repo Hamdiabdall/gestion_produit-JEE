@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@
         <h1 class="text-center mb-4">Add New Product</h1>
 
         <!-- Add Product Form -->
-        <form action="${produit.id != 0 ? 'add' : 'update'}" method="post">
+        <form action="${produit.id == 0 ? 'add' : 'update'}" method="post">
             <!-- Add this hidden field for the product ID when updating -->
             <input type="hidden" name="id" value="${produit.id != 0 ? produit.id : ''}" />
 

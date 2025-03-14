@@ -10,7 +10,7 @@ private static Connection connection;
 private SingletonConnection() {
 try {
 Class.forName("com.mysql.jdbc.Driver");
-connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/gestionproduits", "root", "root123*");
+connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/catalogue", "root", "root123*");
 }catch (ClassNotFoundException  e) {
 e.printStackTrace();
 }catch (SQLException e) {
@@ -25,4 +25,3 @@ public static Connection getInstance()
       return connection;
   }
 }
-
