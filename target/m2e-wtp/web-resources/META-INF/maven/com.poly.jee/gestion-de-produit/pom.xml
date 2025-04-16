@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <build>
+    <finalName>gestion-de-produit</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -18,6 +19,7 @@
         <version>3.2.3</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
+          <warName>gestion-de-produit</warName>
         </configuration>
       </plugin>
     </plugins>

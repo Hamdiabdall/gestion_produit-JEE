@@ -17,7 +17,7 @@ import entity.Produit;
 /**
  * Servlet implementation class Controller
  */
-@WebServlet(urlPatterns = {"/", "/acceuil", "/search", "/add", "/delete", "/update"})
+@WebServlet(name = "controllerServlet", urlPatterns = {"", "/", "/acceuil", "/search", "/add", "/delete", "/update"})
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private IGestionProduit gestion;
@@ -41,9 +41,11 @@ public class Controller extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String path = request.getServletPath();
+        
+        System.out.println("Servlet path: " + path);
 
         // Handle the home page or acceuil page
-        if (path.equals("/") || path.equals("/acceuil")) {
+        if (path.equals("") || path.equals("/") || path.equals("/acceuil")) {
             List<Produit> liste = gestion.getAllProducts();
             request.setAttribute("products", liste);
             request.getRequestDispatcher("acceuil2.jsp").forward(request, response);
@@ -77,6 +79,9 @@ public class Controller extends HttpServlet {
             request.setAttribute("produit", produit);
             request.setAttribute("nomB", "Modifier");
             request.getRequestDispatcher("ajout2.jsp").forward(request, response);
+        } else {
+            // Handle unknown paths
+            response.sendRedirect("acceuil");
         }
     }
 

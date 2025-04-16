@@ -12,8 +12,19 @@ import entity.Produit;
 
 public class GestionProduitJPA implements IGestionProduit {
 
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestionproduits");
-	EntityManager em = emf.createEntityManager();
+	private EntityManagerFactory emf;
+	private EntityManager em;
+	
+	public GestionProduitJPA() {
+		try {
+			emf = Persistence.createEntityManagerFactory("gestionproduits");
+			em = emf.createEntityManager();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Error initializing database connection: " + e.getMessage());
+		}
+	}
+	
 	@Override
 	public void addProduct(Produit p) {
 		// TODO Auto-generated method stub
